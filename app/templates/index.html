@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Whiteboard</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <h1>Whiteboard</h1>
+    <form action="/add_note" method="post">
+        <label for="username">Username:</label>
+        <input type="text" id="username" name="username" required>
+        <br>
+        <label for="content">Note:</label>
+        <textarea id="content" name="content" required></textarea>
+        <br>
+        <button type="submit">Add Note</button>
+    </form>
+    <hr>
+    <h2>Notes:</h2>
+    <ul>
+        {% for note in notes %}
+        <li><strong>{{ note.username }}</strong>: {{ note.content }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
